@@ -9,7 +9,8 @@ FROM alpine
 ENV CONFIG=https://gist.githubusercontent.com/mixool/ad940b202e25ce51d52b20f535eeebde/raw/edecd8717833b1b20c19f9e65446bf7186c1c630/v2rayTor.json
 
 COPY --from=builder /tmp/v2ray.tgz /tmp
-COPY torrc.default /etc/tor/torrc.default
+COPY torrc.default /torrc.default
+COPY v2rayTor.json /v2rayTor.json
 COPY start.sh /start.sh
 RUN apk update && apk add --no-cache bash tor ca-certificates && \
     mkdir -p /usr/bin/v2ray && \
