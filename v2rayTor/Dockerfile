@@ -15,7 +15,7 @@ COPY start.sh /start.sh
 RUN apk update && apk add --no-cache bash tor ca-certificates && \
     mkdir -p /usr/bin/v2ray && \
     tar xvfz /tmp/v2ray.tgz -C /usr/bin/v2ray && \
-    chown -hR /var/lib/tor && \
+    chown -R root /var/lib/tor && \
     chmod +x /start.sh && \
     rm -rf /tmp/v2ray.tgz
 
