@@ -11,5 +11,6 @@ RUN apk add --no-cache --virtual=.build-dependencies go gcc git libc-dev ca-cert
     && rm -rf /tmp
 
 ADD Tstart.sh /
+RUN chmod +x /Tstart.sh
 
 CMD ["/Tstart.sh"]
