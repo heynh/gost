@@ -6,7 +6,7 @@ RUN git clone --progress https://github.com/v2fly/v2ray-core.git . && \
 
 FROM alpine
 
-ENV CONFIG=https://gist.githubusercontent.com/mixool/ad940b202e25ce51d52b20f535eeebde/raw/edecd8717833b1b20c19f9e65446bf7186c1c630/v2rayTor.json
+ENV CONFIG="/v2rayTor.json"
 
 COPY --from=builder /tmp/v2ray.tgz /tmp
 COPY torrc.default /torrc.default
