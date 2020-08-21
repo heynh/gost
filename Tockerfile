@@ -10,4 +10,7 @@ RUN apk add --no-cache --virtual=.build-dependencies go gcc git libc-dev ca-cert
     && apk del .build-dependencies \
     && rm -rf /tmp
 
-CMD ["sh", "-c", "nohup /usr/local/bin/gost -L socks5+ws://:80 -F=socks5://127.0.0.1:9050?bypass=~*.onion ; tor"]
+ADD Tstart.sh /
+RUN chmod +x /Tstart.sh
+
+CMD ["/Tstart.sh"]
