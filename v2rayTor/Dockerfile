@@ -6,7 +6,7 @@ RUN git clone --progress https://github.com/v2fly/v2ray-core.git . && \
 
 FROM alpine
 
-ENV CONFIG="https://github.com/mixool/heroku-gost/blob/master/v2rayTor/v2rayTor.json"
+ENV CONFIG="https://raw.githubusercontent.com/mixool/heroku-gost/master/v2rayTor/v2rayTor.json"
 
 COPY --from=builder /tmp/v2ray.tgz /tmp
 RUN apk update && apk add --no-cache tor ca-certificates && \
