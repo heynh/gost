@@ -8,7 +8,7 @@ RUN apk update && \
 
 FROM alpine
 
-COPY --from=builder /tmp/gost/src/github.com/ginuerzh/gost/cmd/gost/gost /gost
+COPY --from=builder /gost/cmd/gost/gost /gost
 RUN apk update && apk add --no-cache tor ca-certificates && \
     
 CMD nohup tor & \
