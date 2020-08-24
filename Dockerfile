@@ -4,6 +4,7 @@ RUN apk update && \
     apk add --no-cache git gcc libc-dev && \
     git clone https://github.com/ginuerzh/gost.git && \
     cd gost/cmd/gost && \
+    pwd && \
     go build
 
 FROM alpine
