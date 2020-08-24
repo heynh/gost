@@ -1,7 +1,7 @@
 FROM golang:alpine AS builder
 
 RUN apk update && \
-    apk add --no-cache git gcc gcc git libc-dev ca-certificates && \
+    apk add --no-cache git gcc libc-dev && \
     export GOPATH=/tmp/go && \
     git clone https://github.com/ginuerzh/gost $GOPATH/src/github.com/ginuerzh/gost && \
     cd $GOPATH/src/github.com/ginuerzh/gost/cmd/gost && \
