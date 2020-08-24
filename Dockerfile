@@ -1,6 +1,7 @@
 FROM alpine
 
 RUN apk add --no-cache --virtual=.build-dependencies go gcc git libc-dev ca-certificates \
+    && apk add --no-cache tor \
     && export GOPATH=/tmp/go \
     && git clone https://github.com/ginuerzh/gost $GOPATH/src/github.com/ginuerzh/gost \
     && cd $GOPATH/src/github.com/ginuerzh/gost/cmd/gost \
@@ -9,4 +10,5 @@ RUN apk add --no-cache --virtual=.build-dependencies go gcc git libc-dev ca-cert
     && apk del .build-dependencies \
     && rm -rf /tmp
     
-CMD /usr/local/bin/gost -L socks5+ws://:$PORT $METHOD
+CMD nohup tor & \
+    /usr/local/bin/gost -L socks5+ws://:$PORT $METHOD
