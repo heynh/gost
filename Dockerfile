@@ -1,7 +1,7 @@
 FROM golang:alpine AS builder
 
 RUN apk update && \
-    apk add --no-cache git gcc && \
+    apk add --no-cache git libc-dev && \
     git clone https://github.com/ginuerzh/gost.git && \
     cd /go/gost/cmd/gost && \
     go build
