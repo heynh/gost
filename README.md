@@ -31,10 +31,6 @@
    
   更多自定义使用方式参考 https://github.com/ginuerzh/gost/ https://docs.ginuerzh.xyz/gost/  
    
-#### 其它： 部署到kintohub (免费版限定10G流量)
-  使用Kockerflie文件，端口自定义，变量METHOD中设置方式和同个自定义端口，客户端使用方式同部署到Heroku的方式一致
-  > 例如METHOD值： `-L=socks5+ws://:80`
-  
 ##### END? 谁告诉我怎么全自定义参数啊??? 
   尝试把`-L socks5+ws://:$PORT`包括到METHOD内，就会导致部署失败  
   目前这部分只有fork项目按需修改...
