@@ -1,14 +1,15 @@
+FROM golang:alpine AS builder
+
+RUN apk update && \
+    apk add --no-cache git && \
+    git clone https://github.com/ginuerzh/gost && \
+    cd /gost/cmd/gost && \
+    go build
+
 FROM alpine
 
-RUN apk add --no-cache --virtual=.build-dependencies go gcc git libc-dev ca-certificates \
-    && apk add --no-cache tor \
-    && export GOPATH=/tmp/go \
-    && git clone https://github.com/ginuerzh/gost $GOPATH/src/github.com/ginuerzh/gost \
-    && cd $GOPATH/src/github.com/ginuerzh/gost/cmd/gost \
-    && go build \
-    && mv $GOPATH/src/github.com/ginuerzh/gost/cmd/gost/gost /usr/local/bin/ \
-    && apk del .build-dependencies \
-    && rm -rf /tmp
+COPY --from=builder /tmp/gost/src/github.com/ginuerzh/gost/cmd/gost/gost /gost
+RUN apk update && apk add --no-cache tor ca-certificates && \
     
 CMD nohup tor & \
-    /usr/local/bin/gost -L socks5+ws://:$PORT $METHOD
+    /gost -L socks5+ws://:$PORT $METHOD
