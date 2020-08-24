@@ -27,8 +27,8 @@
 #### 四. 关于变量 METHOD 使用范例
   默认是空值，运行方式即为：`/usr/local/bin/gost -L socks5+ws://:$PORT` 已可以满足大部分需求
 
-  * 设置METHOMETHOD值为`-F=socks5://127.0.0.1:9050?bypass=~*.onion`，即可访问tor网络
-  * 如有一个能解锁流媒体的VPS运行着SS服务，只需要修改变量METHOMETHOD下面的值，即可分流Netflix流量到VPS的SS服务器：
+  * 设置METHOD值为`-F=socks5://127.0.0.1:9050?bypass=~*.onion`，即可访问tor网络
+  * 如有一个能解锁流媒体的VPS运行着SS服务，只需要修改变量METHOD下面的值，即可分流Netflix流量到VPS的SS服务器：
   > `-F=ss://AEAD_CHACHA20_POLY1305:password@server_ip:833?bypass=~*.btstatic.com,*.netflix.com,*.netflix.net,*.nflxext.com,*.nflximg.com,*.nflximg.net,*.nflxsearch.net,*.nflxso.net,*.nflxvideo.net`
   
   更多自定义使用方式参考 https://github.com/ginuerzh/gost/ https://docs.ginuerzh.xyz/gost/  
