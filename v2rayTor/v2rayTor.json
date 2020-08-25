@@ -11,6 +11,7 @@
     "outbounds": 
     [
         {"protocol": "freedom","tag": "direct","settings": {}},
+        {"protocol": "blackhole","settings": {},"tag": "blocked"},
         {"protocol": "socks","tag": "socksTor","settings": {"servers": [{"address": "127.0.0.1","port": 9050}]}}
     ],
 
