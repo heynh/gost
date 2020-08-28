@@ -7,10 +7,10 @@ RUN apk update && \
     go build
 
 FROM alpine
-ENV METHOD="socks5+ws://:3000 -F=socks5://127.0.0.1:9050?bypass=~*.onion"
+ENV METHOD="-L=socks5+ws://:3000 -F=socks5://127.0.0.1:9050?bypass=~*.onion"
 
 COPY --from=builder /go/gost/cmd/gost/gost /bin/gost
 RUN apk update && apk add --no-cache tor ca-certificates
 
 CMD nohup tor & \
-    /bin/gost -L $METHOD
+    /bin/gost $METHOD
