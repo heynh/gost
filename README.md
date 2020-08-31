@@ -1,6 +1,6 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)  
   
-> 提醒： 滥用可能导致账户就被BAN！！！  
+> 提醒： 滥用可能导致账户被BAN！！！  
   
 #### 一. 点击图标部署项目：  
   
